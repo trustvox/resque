@@ -37,7 +37,7 @@
     <% resque.queues.sort_by { |q| q.to_s }.each do |queue| %>
     <tr>
       <td class='queue'><a class="queue" href="<%= u "queues/#{queue}" %>"><%= queue %></a></td>
-      <td class='size'><%= resque.size queue %></td>
+      <td class='size'><%= number_with_precision(resque.size(queue)) %></td>
     </tr>
     <% end %>
     <% if failed_multiple_queues? %>
